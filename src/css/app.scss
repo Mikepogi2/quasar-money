@@ -1,0 +1,15 @@
+// app global css in SCSS form
+.q-drawer {
+    .q-item {
+        &.q-router-link--exact-active {
+            opacity: 1;
+            background-color: $secondary;
+            transition: all ease 0.5s;
+        }
+    }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    margin-left: 10px;
+}
