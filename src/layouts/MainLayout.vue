@@ -45,6 +45,7 @@
           :key="link.title"
           v-bind="link"
         />
+        <q-btn icon="play_circle" round class="absolute btn-drawer" color="white" dense flat @click="playMusic"/>
       </q-list>
     </q-drawer>
 
@@ -62,7 +63,9 @@ defineOptions({
   name: 'MainLayout'
 })
 
+const isPlaying = ref(false)
 const miniState = ref(true)
+const audioRef = ref(null)
 
 const navLinks = [
   {
@@ -82,4 +85,28 @@ const leftDrawerOpen = ref(false)
 function toggleLeftDrawer () {
   leftDrawerOpen.value = !leftDrawerOpen.value
 }
+
+const playMusic = () => {
+  if (!audioRef.value) {
+    audioRef.value = new Audio('src/assets/newJeans.mp3')
+  }
+
+  if (!isPlaying.value) {
+    console.log(isPlaying.value)
+    audioRef.value.play()
+    isPlaying.value = true
+    console.log(isPlaying.value)
+  } else {
+    audioRef.value.pause()
+    isPlaying.value = false
+  }
+}
 </script>
+
+<style scoped>
+
+.btn-drawer {
+  transform: translateX(30%)
+}
+
+</style>

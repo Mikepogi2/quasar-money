@@ -77,7 +77,7 @@
 </template>
 
 <script setup>
-import { ref} from 'vue';
+import { ref, watch} from 'vue';
 import { currencify } from 'src/use/currencify';
 import { colorClass } from 'src/use/colorClass';
 import { useQuasar } from 'quasar';
@@ -132,7 +132,13 @@ const onLeft = ({ reset }, entry) => {
   reset()
 }
 
+const SaveData = $q.localStorage.getItem('$p.entries')
+if (SaveData) Object.assign($p.entries, SaveData)
 
+watch($p.entries, value => {
+  console.log(value)
+  $q.localStorage.set('$p.entries', value)
+})
 
 </script>
 

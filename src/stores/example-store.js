@@ -6,24 +6,6 @@ export const usePiniaStore = defineStore('counter', {
   state: () => ({
     counter: 0,
     entries: [
-      {
-        id: id++,
-        name: 'Phone',
-        amount: -3999,
-        isPaid: true,
-      },
-      {
-        id: id++,
-        name: 'Unknown',
-        amount: 0,
-        isPaid: false,
-      },
-      {
-        id: id++,
-        name: 'House',
-        amount: -6999,
-        isPaid: true,
-      },
     ],
     textAmount: '',
     numAmount: null,
